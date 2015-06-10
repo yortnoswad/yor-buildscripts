@@ -1,0 +1,2 @@
+# Update complete repolist from git.centos once a day
+15 1 * * * /usr/local/bin/update.repolist.sh
