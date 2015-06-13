@@ -2,6 +2,15 @@
 #
 # This script 
 
+#!/bin/bash
+#
+# Check and see if there are any new repos (packages)
+#   in the list of centos rpm git repo's
+#
+# If there are, send out an email, and put the new
+#   repos in the newrepo file
+#
+
 # Get the buildscripts global variables
 source /usr/local/etc/buildscripts.conf
 
@@ -46,7 +55,7 @@ else
   # Send our email out
   mail -s "NEW REPOS - $TODAY" $EMAILLIST < $MAILFILE
   # Add this list to the history file, with date stamp
-  echo $TODAY >> $HISTORYFILE
+  echo "## $TODAY" >> $HISTORYFILE
   cat $MAILFILE >> $HISTORYFILE
   # Add this list to the newrepo file
   #   The new repo file should be cleaned out when it is 
