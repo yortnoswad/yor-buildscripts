@@ -45,7 +45,11 @@ echo "  Copy the buildscripts files to their places ..."
 cd $HERE
 # Sorry, but we've got to know where the buildscripts.conf is
 #  so at this time this can't be configurable.
-cp usr/local/etc/* /usr/local/etc/
+if [ -f /usr/local/etc/buildscripts.conf ] ; then
+  /bin/cp -f usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
+else
+  /bin/cp -f usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
+fi
 cp usr/local/bin/* $BINDIR
 
 # And ... now we're done
