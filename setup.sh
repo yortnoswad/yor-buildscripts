@@ -46,9 +46,9 @@ cd $HERE
 # Sorry, but we've got to know where the buildscripts.conf is
 #  so at this time this can't be configurable.
 if [ -f /usr/local/etc/buildscripts.conf ] ; then
-  /bin/cp -f usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
-else
   /bin/cp -f usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
+else
+  /bin/cp -f usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
 fi
 cp usr/local/bin/* $BINDIR
 
