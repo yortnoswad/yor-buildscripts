@@ -15,6 +15,10 @@ MAILFILE="$REPODIR/mailfile.$TODAY"
 HISTORYFILE="$REPODIR/history"
 NEWREPOFILE="$REPODIR/newrepo"
 
+# Make sure everything we need is there.
+[ -d $REPODIR ] || mkdir -p $REPODIR
+[ -f $YESTERDAYLIST ] || touch $YESTERDAYLIST
+
 # Pull down the full centos repo list, and massage it into a nice file
 #$BINDIR/centos.git.repolist.py -b c7 | cut -d'/' -f6 | grep .git | rev | cut -c 5- | rev | sort -u > $TODAYLIST
 $BINDIR/centos.git.repolist.py -b c7 | cut -d'/' -f6 | grep .git | while read line
