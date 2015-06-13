@@ -14,7 +14,7 @@
 #   run in the git repo base directory
 
 # Get the buildscripts global variables
-source usr/local/bin/buildscripts.conf
+source usr/local/etc/buildscripts.conf
 
 HERE="$PWD"
 
