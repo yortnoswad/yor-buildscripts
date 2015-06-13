@@ -3,7 +3,7 @@
 # This script 
 
 # Get the buildscripts global variables
-source /usr/local/bin/buildscripts.conf
+source /usr/local/etc/buildscripts.conf
 
 # Set the variables specific to this script
 REPODIR="$WORKDIR/repolist"
