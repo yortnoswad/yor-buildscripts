@@ -38,7 +38,7 @@ fi
 # Copy all the centos-git-common script to our bin directory
 echo "  Copy the latest centos-git-common files to our bin directory ..."
 cd $CENTOSGITDIR/centos-git-common
-/bin/cp -f *.sh *.py $BINDIR
+/bin/cp -f -p *.sh *.py $BINDIR
 
 # Copy buildscripts files over
 echo "  Copy the buildscripts files to their places ..."
@@ -46,11 +46,11 @@ cd $HERE
 # Sorry, but we've got to know where the buildscripts.conf is
 #  so at this time this can't be configurable.
 if [ -f /usr/local/etc/buildscripts.conf ] ; then
-  /bin/cp -f usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
+  /bin/cp -f -p usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
 else
-  /bin/cp -f usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
+  /bin/cp -f -p usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
 fi
-cp usr/local/bin/* $BINDIR
+/bin/cp -f -p usr/local/bin/* $BINDIR
 
 # And ... now we're done
 echo "buildscripts is now setup."
