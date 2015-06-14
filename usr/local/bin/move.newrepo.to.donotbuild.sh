@@ -29,7 +29,7 @@ fi
 # Grab the list of packages to move, and work through them one by one.
 for package in $*; do
   echo "Moving: $package"
-  packageline=$(grep "^$line," $NEWREPOFILE)
+  packageline=$(grep "^$package," $NEWREPOFILE)
   if [ "$packageline" == "" ] ; then
     echo "  $package is not found in newrepo file.  Skipping"
   else
