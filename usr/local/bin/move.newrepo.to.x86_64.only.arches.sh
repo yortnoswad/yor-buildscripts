@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Move packages our of the newrepo file
-#   and into the noarch package list file
+#   and into the build.x86_64.only.packages file
 #
 # In the future all "move.newrepo" scripts 
 #   should be consolodated into one

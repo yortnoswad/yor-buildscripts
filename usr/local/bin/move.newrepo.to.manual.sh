@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Move packages our of the newrepo file
-#   and into the donotbuild package list file
+#   and into the manual package list file
 #
 # In the future all "move.newrepo" scripts 
 #   should be consolodated into one
