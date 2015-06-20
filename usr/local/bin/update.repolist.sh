@@ -1,9 +1,5 @@
 #!/bin/bash
 #
-# This script 
-
-#!/bin/bash
-#
 # Check and see if there are any new repos (packages)
 #   in the list of centos rpm git repo's
 #
