@@ -13,10 +13,24 @@ source /usr/local/etc/buildscripts.conf
 # Set the variables specific to this script
 NOW=$(date +"%Y-%m-%d %H:%M")
 TODAY=$(date +%Y-%m-%d)
-MAILFILE="$REPODIR/mailfile.$TODAY"
 PACKAGEDIR="$WORKDIR/packagelist"
-NEWBUILDFILE="build.manual.packages"
+MAILFILE="$PACKAGEDIR/mailfile.$TODAY"
+PACKAGESFILE="$PACKAGEDIR/build.manual.packages"
 
+# Work through the packages one at a time
+cat $PACKAGESFILE | while read packageline
+do
+  package=$(echo $packageline | cut -d',' -f1)
+  packagegit=$(echo $packageline | cut -d',' -f2)
+  if ! [ -d $CENTOSGITDIR/$package ] ; then
+    # We do not have the repo yet, get it and mark that is has changed
+    cd $CENTOSGITDIR
+    git clone $packagegit
+    echo "Update found: $package" >> $MAILFILE
+  else
+    # We need to pull and get the newest stuff
+  fi
+done
 
 # Pull down the full centos repo list, and massage it into a nice file
 #$BINDIR/centos.git.repolist.py -b c7 | cut -d'/' -f6 | grep .git | rev | cut -c 5- | rev | sort -u > $TODAYLIST
