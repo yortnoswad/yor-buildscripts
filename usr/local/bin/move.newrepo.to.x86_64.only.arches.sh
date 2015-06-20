@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Move packages our of the newrepo file
-#   and into the build.x86_64.only.packages file
+#   and into the correct package build file
 #
 # In the future all "move.newrepo" scripts 
 #   should be consolodated into one
@@ -14,6 +14,7 @@ source /usr/local/etc/buildscripts.conf
 REPODIR="$WORKDIR/repolist"
 NEWREPOFILE="$REPODIR/newrepo"
 PACKAGEDIR="$WORKDIR/packagelist"
+NEWBUILDFILE="build.x86_64.only.packages"
 
 # Make sure everything we need is there.
 [ -d $PACKAGEDIR ] || mkdir -p $PACKAGEDIR
@@ -33,8 +34,8 @@ for package in $*; do
   if [ "$packageline" == "" ] ; then
     echo "  $package is not found in newrepo file.  Skipping"
   else
-    echo "  Putting $package in noarch packagelist"
-    echo $packageline >> $PACKAGEDIR/build.x86_64.only.packages
+    echo "  Putting $package in $NEWBUILDFILE"
+    echo $packageline >> $PACKAGEDIR/$NEWBUILDFILE
     echo "  Removing $package from newrepo file"
     sed -i "/^${package},/d" $NEWREPOFILE
   fi
