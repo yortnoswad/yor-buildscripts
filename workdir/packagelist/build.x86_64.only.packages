@@ -1,0 +1,13 @@
+ceph-common,https://git.centos.org/git/rpms/ceph-common.git
+glusterfs,https://git.centos.org/git/rpms/glusterfs.git
+gnome-boxes,https://git.centos.org/git/rpms/gnome-boxes.git
+infinipath-psm,https://git.centos.org/git/rpms/infinipath-psm.git
+libipathverbs,https://git.centos.org/git/rpms/libipathverbs.git
+open-vm-tools,https://git.centos.org/git/rpms/open-vm-tools.git
+oracleasm,https://git.centos.org/git/rpms/oracleasm.git
+ras-utils,https://git.centos.org/git/rpms/ras-utils.git
+sanlock,https://git.centos.org/git/rpms/sanlock.git
+softhsm,https://git.centos.org/git/rpms/softhsm.git
+spice,https://git.centos.org/git/rpms/spice.git
+supermin,https://git.centos.org/git/rpms/supermin.git
+tboot,https://git.centos.org/git/rpms/tboot.git

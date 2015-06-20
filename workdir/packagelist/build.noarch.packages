@@ -433,7 +433,6 @@ libquvi-scripts,https://git.centos.org/git/rpms/libquvi-scripts.git
 librepository,https://git.centos.org/git/rpms/librepository.git
 libserializer,https://git.centos.org/git/rpms/libserializer.git
 libvirt-java,https://git.centos.org/git/rpms/libvirt-java.git
-linux-firmware,https://git.centos.org/git/rpms/linux-firmware.git
 lklug-fonts,https://git.centos.org/git/rpms/lklug-fonts.git
 log4j,https://git.centos.org/git/rpms/log4j.git
 logwatch,https://git.centos.org/git/rpms/logwatch.git
