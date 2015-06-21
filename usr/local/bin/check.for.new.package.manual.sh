@@ -15,7 +15,8 @@ NOW=$(date +"%Y-%m-%d %H:%M")
 TODAY=$(date +%Y-%m-%d)
 PACKAGEDIR="$WORKDIR/packagelist"
 MAILFILE="$PACKAGEDIR/mailfile.$TODAY"
-PACKAGESFILE="$PACKAGEDIR/build.manual.packages"
+BUILDTYPE="manual"
+PACKAGESFILE="$PACKAGEDIR/build.$BUILDTYPE.packages"
 
 # Work through the packages one at a time
 cat $PACKAGESFILE | while read packageline
@@ -25,51 +26,29 @@ do
   if ! [ -d $CENTOSGITDIR/$package ] ; then
     # We do not have the repo yet, get it and mark that is has changed
     cd $CENTOSGITDIR
-    git clone $packagegit
-    echo "Update found: $package" >> $MAILFILE
+    GOUTPUT=$(git clone $packagegit)
+    echo "### Update found: $package" >> $MAILFILE
+    echo "$GOUTPUT" >> $MAILFILE
   else
     # We need to pull and get the newest stuff
+    cd $CENTOSGITDIR/$package
+    GOUTPUT=$(git pull)
+    if [ "$GOUTPUT" == "" ] ; then
+      echo "No Update for $package"
+    else
+      echo "### Update found: $package" >> $MAILFILE
+      echo "$GOUTPUT" >> $MAILFILE      
+    fi
   fi
 done
 
-# Pull down the full centos repo list, and massage it into a nice file
-#$BINDIR/centos.git.repolist.py -b c7 | cut -d'/' -f6 | grep .git | rev | cut -c 5- | rev | sort -u > $TODAYLIST
-$BINDIR/centos.git.repolist.py -b c7 | cut -d'/' -f6 | grep .git | while read line
-do
-  URL="https://git.centos.org/git/rpms/$line"
-  REPO="$(echo $line | rev | cut -c 5- | rev )"
-  echo "$REPO,$URL" >> $TODAYLIST
-done
-sort -u -o $TODAYLIST $TODAYLIST
-
-# Make sure we have yesterdays list, even if it is empty
-[ -f $YESTERDAYLIST ] || touch $YESTERDAYLIST
-
-# Compare todays repolist with yesterdays, and act accordingly
-if $(diff --brief $TODAYLIST $YESTERDAYLIST > /dev/null) ; then
-  # There was no package added
-  # If there was no change, get rid of the clutter
-  /bin/rm -f $TODAYLIST
-  # Be sure to log that we ran and our status
-  echo "$NOW [SUCCESS] $0 [NO CHANGE]" >> $LOGFILE
+# 
+if [ -s $MAILFILE ] ; then
+  mail -s "NEW PACKAGES - MANUAL - $TODAY" $EMAILLIST < $MAILFILE
+  mv $MAILFILE $LOGDIR/new.$BUILDTYPE.packages.$TODAY
+  echo "$NOW [SUCCESS] $0 [NEW PACKAGES] $LOGDIR/new.$BUILDTYPE.packages.$TODAY" >> $LOGFILE
 else
-  # There was a package added
-  # List the changes and put them in the mail file
-  comm -23 $TODAYLIST $YESTERDAYLIST > $MAILFILE
-  # Send our email out
-  mail -s "NEW REPOS - $TODAY" $EMAILLIST < $MAILFILE
-  # Add this list to the history file, with date stamp
-  echo "## $TODAY" >> $HISTORYFILE
-  cat $MAILFILE >> $HISTORYFILE
-  # Add this list to the newrepo file
-  #   The new repo file should be cleaned out when it is 
-  #   determined what categories the repos fall in
-  cat $MAILFILE >> $NEWREPOFILE
-  # Change the link so we are ready for the next run
-  ln -sf $TODAYLIST $YESTERDAYLIST
-  # cleanup
-  /bin/rm -f $MAILFILE
-  # Be sure to log that we ran and our status
-  echo "$NOW [SUCCESS] $0 [NEW REPOS] $NEWREPOFILE" >> $LOGFILE
+  echo "$NOW [SUCCESS] $0 [NO NEW PACKAGES]" >> $LOGFILE
 fi
 
+exit 0
