@@ -33,7 +33,7 @@ do
     # We need to pull and get the newest stuff
     cd $CENTOSGITDIR/$package
     GOUTPUT=$(git pull)
-    if [ "$GOUTPUT" == "" ] ; then
+    if [ "$GOUTPUT" == "Already up-to-date." ] ; then
       echo "No Update for $package"
     else
       echo "### Update found: $package" >> $MAILFILE
