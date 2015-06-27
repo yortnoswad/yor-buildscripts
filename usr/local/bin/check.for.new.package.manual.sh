@@ -14,8 +14,8 @@ source /usr/local/etc/buildscripts.conf
 NOW=$(date +"%Y-%m-%d %H:%M")
 TODAY=$(date +%Y-%m-%d)
 PACKAGEDIR="$WORKDIR/packagelist"
-MAILFILE="$PACKAGEDIR/mailfile.$TODAY"
 BUILDTYPE="manual"
+MAILFILE="$PACKAGEDIR/mailfile.$BUILDTYPE.$TODAY"
 PACKAGESFILE="$PACKAGEDIR/build.$BUILDTYPE.packages"
 
 # Work through the packages one at a time
