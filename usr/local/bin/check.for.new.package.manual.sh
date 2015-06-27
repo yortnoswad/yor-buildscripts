@@ -36,7 +36,7 @@ do
     if [ "$GOUTPUT" == "Already up-to-date." ] ; then
       echo "No Update for $package"
     else
-      echo "### Update found: $package" >> $MAILFILE
+      echo "### Update found: $package ###" >> $MAILFILE
       echo "$GOUTPUT" >> $MAILFILE      
     fi
   fi
