@@ -37,7 +37,7 @@ do
       echo "No Update for $package"
     else
       echo "### Update found: $package ###" >> $MAILFILE
-      #secho "$GOUTPUT" >> $MAILFILE
+      echo "$GOUTPUT" >> $MAILFILE
       NEWDISTTAG=$(return_disttag.sh)
       NEWSRPM=$(into_srpm.sh | grep Wrote: | awk '{print $2}')
       if [ "$NEWSRPM" == "" ] ; then
