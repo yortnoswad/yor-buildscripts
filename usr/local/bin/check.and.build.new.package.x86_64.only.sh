@@ -32,12 +32,12 @@ do
   else
     # We need to pull and get the newest stuff
     cd $CENTOSGITDIR/$package
-    #GOUTPUT=$(git pull)
+    GOUTPUT=$(git pull)
     if [ "$GOUTPUT" == "Already up-to-date." ] ; then
       echo "No Update for $package"
     else
       echo "### Update found: $package ###" >> $MAILFILE
-      echo "$GOUTPUT" >> $MAILFILE
+      #echo "$GOUTPUT" >> $MAILFILE
       NEWDISTTAG=$(return_disttag.sh)
       NEWSRPM=$(into_srpm.sh | grep Wrote: | awk '{print $2}')
       if [ "$NEWSRPM" == "" ] ; then
