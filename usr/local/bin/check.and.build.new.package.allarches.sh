@@ -14,7 +14,7 @@ source /usr/local/etc/buildscripts.conf
 NOW=$(date +"%Y-%m-%d %H:%M")
 TODAY=$(date +%Y-%m-%d)
 PACKAGEDIR="$WORKDIR/packagelist"
-BUILDTYPE="noarch"
+BUILDTYPE="allarches"
 MAILFILE="$PACKAGEDIR/mailfile.$BUILDTYPE.$TODAY"
 PACKAGESFILE="$PACKAGEDIR/build.$BUILDTYPE.packages"
 
@@ -32,12 +32,12 @@ do
   else
     # We need to pull and get the newest stuff
     cd $CENTOSGITDIR/$package
-    GOUTPUT=$(git pull)
+    #GOUTPUT=$(git pull)
     if [ "$GOUTPUT" == "Already up-to-date." ] ; then
       echo "No Update for $package"
     else
       echo "### Update found: $package ###" >> $MAILFILE
-      #echo "$GOUTPUT" >> $MAILFILE
+      echo "$GOUTPUT" >> $MAILFILE
       NEWDISTTAG=$(return_disttag.sh)
       NEWSRPM=$(into_srpm.sh | grep Wrote: | awk '{print $2}')
       if [ "$NEWSRPM" == "" ] ; then
@@ -45,20 +45,28 @@ do
       else
         case $NEWDISTTAG in
           .el7 )
-            cp $NEWSRPM $BUILDDIR/queue.$BUILDTYPE
-            echo "  ### $NEWSRPM put in queue.$BUILDTYPE ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.x86_64
+            cp $NEWSRPM $BUILDDIR/queue.i386
+            cp $NEWSRPM $BUILDDIR/queue.aarch32
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32) ###" >> $MAILFILE
             ;;
           .el7_0 )
-            cp $NEWSRPM $BUILDDIR/queue.$BUILDTYPE.7_0
-            echo "  ### $NEWSRPM put in queue.$BUILDTYPE.7_0 ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_0
+            cp $NEWSRPM $BUILDDIR/queue.i386.7_0
+            cp $NEWSRPM $BUILDDIR/queue.aarch32.7_0
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32).7_0 ###" >> $MAILFILE
             ;;
           .el7_1 )
-            cp $NEWSRPM $BUILDDIR/queue.$BUILDTYPE.7_1
-            echo "  ### $NEWSRPM put in queue.$BUILDTYPE.7_1 ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_1
+            cp $NEWSRPM $BUILDDIR/queue.i386.7_1
+            cp $NEWSRPM $BUILDDIR/queue.aarch32.7_1
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32).7_1 ###" >> $MAILFILE
             ;;
           .el7_2 )
-            cp $NEWSRPM $BUILDDIR/queue.$BUILDTYPE.7_2
-            echo "  ### $NEWSRPM put in queue.$BUILDTYPE.7_2 ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_2
+            cp $NEWSRPM $BUILDDIR/queue.i386.7_2
+            cp $NEWSRPM $BUILDDIR/queue.aarch32.7_2
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32).7_2 ###" >> $MAILFILE
             ;;
           * )
             echo "  ### ERROR: dist tag $NEWDISTTAG is not in our list of tag ###" >> $MAILFILE
