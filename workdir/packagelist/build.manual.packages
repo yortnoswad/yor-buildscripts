@@ -33,3 +33,4 @@ centos-logos,https://git.centos.org/git/rpms/centos-logos.git
 centos-release,https://git.centos.org/git/rpms/centos-release.git
 kernel,https://git.centos.org/git/rpms/kernel.git
 linux-firmware,https://git.centos.org/git/rpms/linux-firmware.git
+sos,https://git.centos.org/git/rpms/sos.git

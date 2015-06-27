@@ -987,7 +987,6 @@ snakeyaml,https://git.centos.org/git/rpms/snakeyaml.git
 SOAPpy,https://git.centos.org/git/rpms/SOAPpy.git
 sonatype-oss-parent,https://git.centos.org/git/rpms/sonatype-oss-parent.git
 sonatype-plugins-parent,https://git.centos.org/git/rpms/sonatype-plugins-parent.git
-sos,https://git.centos.org/git/rpms/sos.git
 sound-theme-freedesktop,https://git.centos.org/git/rpms/sound-theme-freedesktop.git
 spice-parent,https://git.centos.org/git/rpms/spice-parent.git
 spice-protocol,https://git.centos.org/git/rpms/spice-protocol.git
