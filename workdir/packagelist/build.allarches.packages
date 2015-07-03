@@ -291,14 +291,8 @@ gnuplot,https://git.centos.org/git/rpms/gnuplot.git
 gnutls,https://git.centos.org/git/rpms/gnutls.git
 gob2,https://git.centos.org/git/rpms/gob2.git
 gobject-introspection,https://git.centos.org/git/rpms/gobject-introspection.git
-golang-github-coreos-go-sys,https://git.centos.org/git/rpms/golang-github-coreos-go-systemd
-golang-github-godbus-,https://git.centos.org/git/rpms/golang-github-godbus-dbus
-golang-github-gorilla-con,https://git.centos.org/git/rpms/golang-github-gorilla-context
 golang-github-gorilla-context,https://git.centos.org/git/rpms/golang-github-gorilla-context.git
-golang-github-gorilla,https://git.centos.org/git/rpms/golang-github-gorilla-mux
-golang-github-kr,https://git.centos.org/git/rpms/golang-github-kr-pty
 golang-github-kr-pty,https://git.centos.org/git/rpms/golang-github-kr-pty.git
-golang-github-syndtr-gocapabi,https://git.centos.org/git/rpms/golang-github-syndtr-gocapability
 golang-github-syndtr-gocapability,https://git.centos.org/git/rpms/golang-github-syndtr-gocapability.git
 golang-googlecode-sqlite,https://git.centos.org/git/rpms/golang-googlecode-sqlite.git
 gperf,https://git.centos.org/git/rpms/gperf.git
