@@ -30,8 +30,8 @@ apache-ivy,https://git.centos.org/git/rpms/apache-ivy.git
 apache-parent,https://git.centos.org/git/rpms/apache-parent.git
 apache-rat,https://git.centos.org/git/rpms/apache-rat.git
 apache-resource-bundles,https://git.centos.org/git/rpms/apache-resource-bundles.git
-aqute-bndlib,https://git.centos.org/git/rpms/aqute-bndlib.git
 aqute-bnd,https://git.centos.org/git/rpms/aqute-bnd.git
+aqute-bndlib,https://git.centos.org/git/rpms/aqute-bndlib.git
 args4j,https://git.centos.org/git/rpms/args4j.git
 asciidoc,https://git.centos.org/git/rpms/asciidoc.git
 atinject,https://git.centos.org/git/rpms/atinject.git
@@ -206,8 +206,8 @@ hunspell-grc,https://git.centos.org/git/rpms/hunspell-grc.git
 hunspell-gu,https://git.centos.org/git/rpms/hunspell-gu.git
 hunspell-gv,https://git.centos.org/git/rpms/hunspell-gv.git
 hunspell-haw,https://git.centos.org/git/rpms/hunspell-haw.git
-hunspell-hil,https://git.centos.org/git/rpms/hunspell-hil.git
 hunspell-hi,https://git.centos.org/git/rpms/hunspell-hi.git
+hunspell-hil,https://git.centos.org/git/rpms/hunspell-hil.git
 hunspell-hr,https://git.centos.org/git/rpms/hunspell-hr.git
 hunspell-hsb,https://git.centos.org/git/rpms/hunspell-hsb.git
 hunspell-ht,https://git.centos.org/git/rpms/hunspell-ht.git
@@ -359,8 +359,8 @@ jakarta-taglibs-standard,https://git.centos.org/git/rpms/jakarta-taglibs-standar
 jandex,https://git.centos.org/git/rpms/jandex.git
 jansi,https://git.centos.org/git/rpms/jansi.git
 jarjar,https://git.centos.org/git/rpms/jarjar.git
-javacc-maven-plugin,https://git.centos.org/git/rpms/javacc-maven-plugin.git
 javacc,https://git.centos.org/git/rpms/javacc.git
+javacc-maven-plugin,https://git.centos.org/git/rpms/javacc-maven-plugin.git
 java_cup,https://git.centos.org/git/rpms/java_cup.git
 javamail,https://git.centos.org/git/rpms/javamail.git
 javapackages-tools,https://git.centos.org/git/rpms/javapackages-tools.git
@@ -455,10 +455,10 @@ mailcap,https://git.centos.org/git/rpms/mailcap.git
 man-pages-cs,https://git.centos.org/git/rpms/man-pages-cs.git
 man-pages-es,https://git.centos.org/git/rpms/man-pages-es.git
 man-pages-fr,https://git.centos.org/git/rpms/man-pages-fr.git
+man-pages,https://git.centos.org/git/rpms/man-pages.git
 man-pages-it,https://git.centos.org/git/rpms/man-pages-it.git
 man-pages-ja,https://git.centos.org/git/rpms/man-pages-ja.git
 man-pages-ko,https://git.centos.org/git/rpms/man-pages-ko.git
-man-pages,https://git.centos.org/git/rpms/man-pages.git
 man-pages-overrides,https://git.centos.org/git/rpms/man-pages-overrides.git
 man-pages-pl,https://git.centos.org/git/rpms/man-pages-pl.git
 man-pages-ru,https://git.centos.org/git/rpms/man-pages-ru.git
@@ -486,6 +486,7 @@ maven-enforcer,https://git.centos.org/git/rpms/maven-enforcer.git
 maven-file-management,https://git.centos.org/git/rpms/maven-file-management.git
 maven-filtering,https://git.centos.org/git/rpms/maven-filtering.git
 maven-gpg-plugin,https://git.centos.org/git/rpms/maven-gpg-plugin.git
+maven,https://git.centos.org/git/rpms/maven.git
 maven-install-plugin,https://git.centos.org/git/rpms/maven-install-plugin.git
 maven-invoker,https://git.centos.org/git/rpms/maven-invoker.git
 maven-invoker-plugin,https://git.centos.org/git/rpms/maven-invoker-plugin.git
@@ -493,7 +494,6 @@ maven-jar-plugin,https://git.centos.org/git/rpms/maven-jar-plugin.git
 maven-jarsigner-plugin,https://git.centos.org/git/rpms/maven-jarsigner-plugin.git
 maven-javadoc-plugin,https://git.centos.org/git/rpms/maven-javadoc-plugin.git
 maven-jxr,https://git.centos.org/git/rpms/maven-jxr.git
-maven,https://git.centos.org/git/rpms/maven.git
 maven-osgi,https://git.centos.org/git/rpms/maven-osgi.git
 maven-parent,https://git.centos.org/git/rpms/maven-parent.git
 maven-plugin-build-helper,https://git.centos.org/git/rpms/maven-plugin-build-helper.git
@@ -512,10 +512,10 @@ maven-resources-plugin,https://git.centos.org/git/rpms/maven-resources-plugin.gi
 maven-scm,https://git.centos.org/git/rpms/maven-scm.git
 maven-script-interpreter,https://git.centos.org/git/rpms/maven-script-interpreter.git
 maven-shade-plugin,https://git.centos.org/git/rpms/maven-shade-plugin.git
+maven-shared,https://git.centos.org/git/rpms/maven-shared.git
 maven-shared-incremental,https://git.centos.org/git/rpms/maven-shared-incremental.git
 maven-shared-io,https://git.centos.org/git/rpms/maven-shared-io.git
 maven-shared-jar,https://git.centos.org/git/rpms/maven-shared-jar.git
-maven-shared,https://git.centos.org/git/rpms/maven-shared.git
 maven-shared-utils,https://git.centos.org/git/rpms/maven-shared-utils.git
 maven-site-plugin,https://git.centos.org/git/rpms/maven-site-plugin.git
 maven-source-plugin,https://git.centos.org/git/rpms/maven-source-plugin.git
@@ -738,8 +738,8 @@ perl-parent,https://git.centos.org/git/rpms/perl-parent.git
 perl-Parse-CPAN-Meta,https://git.centos.org/git/rpms/perl-Parse-CPAN-Meta.git
 perl-Parse-RecDescent,https://git.centos.org/git/rpms/perl-Parse-RecDescent.git
 perl-Parse-Yapp,https://git.centos.org/git/rpms/perl-Parse-Yapp.git
-perl-Perl-Critic-More,https://git.centos.org/git/rpms/perl-Perl-Critic-More.git
 perl-Perl-Critic,https://git.centos.org/git/rpms/perl-Perl-Critic.git
+perl-Perl-Critic-More,https://git.centos.org/git/rpms/perl-Perl-Critic-More.git
 perl-Perl-MinimumVersion,https://git.centos.org/git/rpms/perl-Perl-MinimumVersion.git
 perl-Perl-OSType,https://git.centos.org/git/rpms/perl-Perl-OSType.git
 perl-PlRPC,https://git.centos.org/git/rpms/perl-PlRPC.git
@@ -978,8 +978,8 @@ shared-desktop-ontologies,https://git.centos.org/git/rpms/shared-desktop-ontolog
 sil-abyssinica-fonts,https://git.centos.org/git/rpms/sil-abyssinica-fonts.git
 sil-nuosu-fonts,https://git.centos.org/git/rpms/sil-nuosu-fonts.git
 sil-padauk-fonts,https://git.centos.org/git/rpms/sil-padauk-fonts.git
-sisu-maven-plugin,https://git.centos.org/git/rpms/sisu-maven-plugin.git
 sisu,https://git.centos.org/git/rpms/sisu.git
+sisu-maven-plugin,https://git.centos.org/git/rpms/sisu-maven-plugin.git
 skkdic,https://git.centos.org/git/rpms/skkdic.git
 slf4j,https://git.centos.org/git/rpms/slf4j.git
 smc-fonts,https://git.centos.org/git/rpms/smc-fonts.git
@@ -1014,8 +1014,8 @@ tex-fonts-hebrew,https://git.centos.org/git/rpms/tex-fonts-hebrew.git
 texi2html,https://git.centos.org/git/rpms/texi2html.git
 thai-scalable-fonts,https://git.centos.org/git/rpms/thai-scalable-fonts.git
 tibetan-machine-uni-fonts,https://git.centos.org/git/rpms/tibetan-machine-uni-fonts.git
-tomcatjss,https://git.centos.org/git/rpms/tomcatjss.git
 tomcat,https://git.centos.org/git/rpms/tomcat.git
+tomcatjss,https://git.centos.org/git/rpms/tomcatjss.git
 tuna,https://git.centos.org/git/rpms/tuna.git
 tuned,https://git.centos.org/git/rpms/tuned.git
 txw2,https://git.centos.org/git/rpms/txw2.git
@@ -1068,7 +1068,7 @@ xstream,https://git.centos.org/git/rpms/xstream.git
 xz-java,https://git.centos.org/git/rpms/xz-java.git
 yelp-tools,https://git.centos.org/git/rpms/yelp-tools.git
 yelp-xsl,https://git.centos.org/git/rpms/yelp-xsl.git
-yum-langpacks,https://git.centos.org/git/rpms/yum-langpacks.git
 yum,https://git.centos.org/git/rpms/yum.git
+yum-langpacks,https://git.centos.org/git/rpms/yum-langpacks.git
 yum-utils,https://git.centos.org/git/rpms/yum-utils.git
 zaf,https://git.centos.org/git/rpms/zaf.git
