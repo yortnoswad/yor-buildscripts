@@ -32,6 +32,7 @@ do
   else
     # We need to pull and get the newest stuff
     cd $CENTOSGITDIR/$package
+    git checkout c7
     GOUTPUT=$(git pull)
     if [ "$GOUTPUT" == "Already up-to-date." ] ; then
       echo "No Update for $package"
