@@ -11,3 +11,5 @@ softhsm,https://git.centos.org/git/rpms/softhsm.git
 spice,https://git.centos.org/git/rpms/spice.git
 supermin,https://git.centos.org/git/rpms/supermin.git
 tboot,https://git.centos.org/git/rpms/tboot.git
+kernel,https://git.centos.org/git/rpms/kernel.git
+linux-firmware,https://git.centos.org/git/rpms/linux-firmware.git
