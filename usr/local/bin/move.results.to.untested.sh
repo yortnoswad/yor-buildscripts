@@ -19,7 +19,7 @@ MAILFILE="$UNTESTEDDIR/mailfile.$TODAY"
 RESULTSLIST="result.noarch result.aarch32 result.i386 result.x86_64"
 
 # Work through the results one directory at a time
-for resultdir in "$RESULTSLIST"
+for resultdir in $RESULTSLIST
 do
   cd $BUILDDIR/$resultdir
   ls -d1 */*/* | while read packdir
@@ -44,7 +44,8 @@ do
             cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/x86_64/os/Packages/
             ;;
       esac
-      mv $packdir $UNTESTEDDIR/
+      packge="$(echo $packdir | cut -d'/' -f1)"
+      mv $packge $UNTESTEDDIR/$resultdir/
       echo $resultdir $packdir >> $MAILFILE
     fi
   done
