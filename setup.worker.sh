@@ -42,7 +42,7 @@ fi
 
 # Copy the mock config files over, do not overright if they are already there.
 cd $HERE/worker/etc/mock
-ls -1 *.conf | while read line
+ls -1 *.cfg | while read line
 do
   if [ -f /etc/mock/$line ] ; then
   /bin/cp -f -p $line /etc/mock/$line.new
