@@ -13,7 +13,7 @@ source /usr/local/etc/buildscripts.conf
 # Set the variables specific to this script
 NOW=$(date +"%Y-%m-%d %H:%M")
 TODAY=$(date +%Y-%m-%d)
-UNTESTEDDIR="$WORKDIR/results/untested"
+UNTESTEDDIR="$BUILDDIR/results/untested"
 UNTESTEDRESULTS="$UNTESTEDDIR/results"
 MAILFILE="$UNTESTEDDIR/mailfile.$TODAY"
 RESULTSLIST="result.noarch result.aarch32 result.i386 result.x86_64"
@@ -21,7 +21,7 @@ RESULTSLIST="result.noarch result.aarch32 result.i386 result.x86_64"
 # Work through the results one directory at a time
 for resultdir in "$RESULTSLIST"
 do
-  cd $WORKDIR/$resultdir
+  cd $BUILDDIR/$resultdir
   ls -d1 */*/* | while read packdir
   do
     # Check to make sure we are not catching something
