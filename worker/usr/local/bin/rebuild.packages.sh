@@ -15,13 +15,13 @@ show_help (){
   echo ""
   echo "Usage: $0 <queue> [version]"
   echo ""
-  echo "queue: noarch i386 x86_64 aarch32"
+  echo "queue: noarch i386 x86_64 armv7"
   echo "version: 7_0 7_1 7_2 yor7"
   echo ""
   echo "Examples:"
   echo "  $0 i386"
   echo "  $0 x86_64 7_1"
-  echo "  $0 aarch32 7_1"
+  echo "  $0 armv7 7_1"
   echo "  $0 noarch 7_1"
   exit 1
 }
@@ -34,8 +34,8 @@ if [ "$1" == "" ] ; then
 else
   QUEUE="$1"
   case $1 in
-    aarch32 )
-      ARCH="aarch32"
+    aarch32 | armv7 )
+      ARCH="armv7"
       REALARCH="armv7hl"
       ;;
     i386 )
