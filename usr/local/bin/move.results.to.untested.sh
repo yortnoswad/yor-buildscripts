@@ -16,7 +16,7 @@ TODAY=$(date +%Y-%m-%d)
 UNTESTEDDIR="$BUILDDIR/results/untested"
 UNTESTEDRESULTS="$UNTESTEDDIR/results"
 MAILFILE="$UNTESTEDDIR/mailfile.$TODAY"
-RESULTSLIST="result.noarch result.aarch32 result.i386 result.x86_64"
+RESULTSLIST="result.noarch result.armv7 result.i386 result.x86_64"
 
 # Work through the results one directory at a time
 for resultdir in $RESULTSLIST
@@ -34,7 +34,7 @@ do
             cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/x86_64/os/Packages/
             cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/armv7/os/Packages/
             ;;
-        result.aarch32 )
+        result.armv7 )
             cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/armv7/os/Packages/
             ;;
         result.i386 )

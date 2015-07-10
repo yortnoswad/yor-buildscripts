@@ -48,26 +48,26 @@ do
           .el7 )
             cp $NEWSRPM $BUILDDIR/queue.x86_64
             cp $NEWSRPM $BUILDDIR/queue.i386
-            cp $NEWSRPM $BUILDDIR/queue.aarch32
-            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32) ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.armv7
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,armv7) ###" >> $MAILFILE
             ;;
           .el7_0 )
             cp $NEWSRPM $BUILDDIR/queue.x86_64.7_0
             cp $NEWSRPM $BUILDDIR/queue.i386.7_0
-            cp $NEWSRPM $BUILDDIR/queue.aarch32.7_0
-            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32).7_0 ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.armv7.7_0
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,armv7).7_0 ###" >> $MAILFILE
             ;;
           .el7_1 )
             cp $NEWSRPM $BUILDDIR/queue.x86_64.7_1
             cp $NEWSRPM $BUILDDIR/queue.i386.7_1
-            cp $NEWSRPM $BUILDDIR/queue.aarch32.7_1
-            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32).7_1 ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.armv7.7_1
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,armv7).7_1 ###" >> $MAILFILE
             ;;
           .el7_2 )
             cp $NEWSRPM $BUILDDIR/queue.x86_64.7_2
             cp $NEWSRPM $BUILDDIR/queue.i386.7_2
-            cp $NEWSRPM $BUILDDIR/queue.aarch32.7_2
-            echo "  ### $NEWSRPM put in queue.(x86_64,i386,aarch32).7_2 ###" >> $MAILFILE
+            cp $NEWSRPM $BUILDDIR/queue.armv7.7_2
+            echo "  ### $NEWSRPM put in queue.(x86_64,i386,armv7).7_2 ###" >> $MAILFILE
             ;;
           * )
             echo "  ### ERROR: dist tag $NEWDISTTAG is not in our list of tag ###" >> $MAILFILE
