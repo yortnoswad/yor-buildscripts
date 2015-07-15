@@ -54,9 +54,9 @@ done
 
 if [ -s $MAILFILE ] ; then
   # Update the repo files
-  createrepo -d $YORREPODIR/7untested/i386/os
-  createrepo -d $YORREPODIR/7untested/x86_64/os
-  createrepo -d $YORREPODIR/7untested/armv7/os
+  createrepo -q -d $YORREPODIR/7untested/i386/os
+  createrepo -q -d $YORREPODIR/7untested/x86_64/os
+  createrepo -q -d $YORREPODIR/7untested/armv7/os
   # rsync the untested area
   rsync -avH --delete -e "ssh -i $BUILDUSERPEM -l $BUILDUSER" $YORREPODIR/7untested/ $REMOTESERVER:$REMOTEREPODIR/7untested/
   # Send the mail
