@@ -19,14 +19,14 @@ UNTESTEDRESULTS="$UNTESTEDDIR/results"
 MAILFILE="$TESTINGDIR/mailfile.$TODAY"
 RESULTSLIST="result.noarch result.armv7 result.i386 result.x86_64"
 
-# # First, sign everything
-# echo "Signing everything"
-# echo
-# rpm --resign $UNTESTEDDIR/*/*/*/*/*/*.rpm
-# if ! [ $? -eq 0 ] ; then
-#   echo "Problem with rpm signing ... exiting"
-#   exit 1
-# fi
+# First, sign everything
+echo "Signing everything"
+echo
+rpm --resign $UNTESTEDDIR/*/*/*/*/*/*.rpm
+if ! [ $? -eq 0 ] ; then
+  echo "Problem with rpm signing ... exiting"
+  exit 1
+fi
 
 # Tell us where to look for where the packages go
 echo "You usually can find what you want here."
@@ -92,7 +92,7 @@ do
             cp -rp $packdir $TESTINGDIR/armv7/$finaldir/$rpmname/$rpmversion/
             cp -rp $packdir $TESTINGDIR/i386/$finaldir/$rpmname/$rpmversion/
             mv $packdir $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion/
-            rmdir --ignore-fail-on-non-empty $namedir $namedir/$rpmversion
+            rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
         result.armv7 )
             cp -f $packdir/RPM/*.rpm $YORREPODIR/7testing/armv7/$finaldir/
@@ -102,7 +102,7 @@ do
             done
             mkdir -p  $TESTINGDIR/armv7/$finaldir/$rpmname/$rpmversion
             mv $packdir $TESTINGDIR/armv7/$finaldir/$rpmname/$rpmversion/
-            rmdir --ignore-fail-on-non-empty $namedir $namedir/$rpmversion
+            rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
         result.i386 )
             cp -f $packdir/RPM/*.rpm $YORREPODIR/7testing/i386/$finaldir/
@@ -112,7 +112,7 @@ do
             done
             mkdir -p  $TESTINGDIR/i386/$finaldir/$rpmname/$rpmversion
             mv $packdir $TESTINGDIR/i386/$finaldir/$rpmname/$rpmversion/
-            rmdir --ignore-fail-on-non-empty $namedir $namedir/$rpmversion
+            rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
         result.x86_64 )
             cp -f $packdir/RPM/*.rpm $YORREPODIR/7testing/x86_64/$finaldir/
@@ -122,7 +122,7 @@ do
             done
             mkdir -p $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion
             mv $packdir $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion/
-            rmdir --ignore-fail-on-non-empty $namedir $namedir/$rpmversion
+            rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
       esac
       echo " $rpmname-$rpmversion-$rpmrelease $resultdir $finaldir" >> $MAILFILE
@@ -140,26 +140,38 @@ if [ -s $MAILFILE ] ; then
   # Update the repo files
   if grep -q os/Packages $MAILFILE ; then
     echo "Creating repos - os"
+    echo "  Updating i386"
     createrepo --update -g $YORREPODIR/7testing/i386/os/comps-yor7-i386.xml -d $YORREPODIR/7testing/i386/os
+    echo "  Updating x86_64"
     createrepo --update -g $YORREPODIR/7testing/x86_64/os/comps-yor7-x86_64.xml -d $YORREPODIR/7testing/x86_64/os
+    echo "  Updating armv7"
     createrepo --update -g $YORREPODIR/7testing/armv7/os/comps-yor7-armv7.xml -d $YORREPODIR/7testing/armv7/os
   fi
   if grep -q updates/security $MAILFILE ; then
     echo "Creating repos - updates/security"
+    echo "  Rebuilding i386"
     createrepo --update -d $YORREPODIR/7testing/i386/updates/security
+    echo "  Rebuilding x86_64"
     createrepo --update -d $YORREPODIR/7testing/x86_64/updates/security
+    echo "  Rebuilding armv7"
     createrepo --update -d $YORREPODIR/7testing/armv7/updates/security
   fi
   if grep -q updates/fastbugs $MAILFILE ; then
     echo "Creating repos - updates/fastbugs"
+    echo "  Rebuilding i386"
     createrepo --update -d $YORREPODIR/7testing/i386/updates/fastbugs
+    echo "  Rebuilding x86_64"
     createrepo --update -d $YORREPODIR/7testing/x86_64/updates/fastbugs
+    echo "  Rebuilding armv7"
     createrepo --update -d $YORREPODIR/7testing/armv7/updates/fastbugs
   fi
   # Update the untested repo files
   echo "Updating the untested repos"
+    echo "  Rebuilding i386"
   createrepo -d $YORREPODIR/7untested/i386/os
+    echo "  Rebuilding x86_64"
   createrepo -d $YORREPODIR/7untested/x86_64/os
+    echo "  Rebuilding armv7"
   createrepo -d $YORREPODIR/7untested/armv7/os
 
   # rsync the testing area
