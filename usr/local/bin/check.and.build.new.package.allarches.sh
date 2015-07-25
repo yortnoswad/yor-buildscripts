@@ -37,11 +37,14 @@ do
     if [ "$GOUTPUT" == "Already up-to-date." ] ; then
       echo "No Update for $package"
     else
+      echo "##############################" >> $MAILFILE
       echo "### Update found: $package ###" >> $MAILFILE
       echo "$GOUTPUT" >> $MAILFILE
       NEWDISTTAG=$(return_disttag.sh)
-      NEWSRPM=$(into_srpm.sh | grep Wrote: | awk '{print $2}')
+      NEWOUTPUT=$(/usr/local/bin/into_srpm.sh)
+      NEWSRPM=$(echo $NEWOUTPUT | grep Wrote: | awk '{print $2}')
       if [ "$NEWSRPM" == "" ] ; then
+        echo "$NEWOUTPUT"
         echo "  ### ERROR: unable to create srpm for $package ###" >> $MAILFILE
       else
         case $NEWDISTTAG in
@@ -74,6 +77,7 @@ do
             ;;
         esac
       fi
+      echo "##############################" >> $MAILFILE
     fi
   fi
 done
