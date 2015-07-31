@@ -42,11 +42,13 @@ do
       echo "$GOUTPUT" >> $MAILFILE
       NEWDISTTAG=$(return_disttag.sh)
       NEWOUTPUT="$(/usr/local/bin/into_srpm.sh)"
+      echo "------" >> $MAILFILE
+      echo "$NEWDISTTAG" >> $MAILFILE
+      echo "------" >> $MAILFILE
+      echo "$NEWOUTPUT" >> $MAILFILE
+      echo "------" >> $MAILFILE
       NEWSRPM=$(echo "$NEWOUTPUT" | grep Wrote: | awk '{print $2}')
       if [ "$NEWSRPM" == "" ] ; then
-        echo "------" >> $MAILFILE
-        echo "$NEWOUTPUT" >> $MAILFILE
-        echo "------" >> $MAILFILE
         echo "  ### ERROR: unable to create srpm for $package ###" >> $MAILFILE
       else
         case $NEWDISTTAG in
