@@ -41,10 +41,12 @@ do
       echo "### Update found: $package ###" >> $MAILFILE
       echo "$GOUTPUT" >> $MAILFILE
       NEWDISTTAG=$(return_disttag.sh)
-      NEWOUTPUT=$(/usr/local/bin/into_srpm.sh)
-      NEWSRPM=$(echo $NEWOUTPUT | grep Wrote: | awk '{print $2}')
+      NEWOUTPUT="$(/usr/local/bin/into_srpm.sh)"
+      NEWSRPM=$(echo "$NEWOUTPUT" | grep Wrote: | awk '{print $2}')
       if [ "$NEWSRPM" == "" ] ; then
-        echo "$NEWOUTPUT"
+        echo "------" >> $MAILFILE
+        echo "$NEWOUTPUT" >> $MAILFILE
+        echo "------" >> $MAILFILE
         echo "  ### ERROR: unable to create srpm for $package ###" >> $MAILFILE
       else
         case $NEWDISTTAG in
