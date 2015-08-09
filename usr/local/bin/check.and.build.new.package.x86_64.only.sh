@@ -26,14 +26,49 @@ do
   if ! [ -d $CENTOSGITDIR/$package ] ; then
     # We do not have the repo yet, get it and mark that is has changed
     cd $CENTOSGITDIR
-    GOUTPUT=$(git clone $packagegit)
-    echo "### Update found: $package ###" >> $MAILFILE
-    echo "$GOUTPUT" >> $MAILFILE
-  else
+    git clone $packagegit
+    echo "##############################" >> $MAILFILE
+    echo "### Update found: $package  - New Repo ###" >> $MAILFILE
+      NEWDISTTAG=$(return_disttag.sh)
+      NEWOUTPUT="$(/usr/local/bin/into_srpm.sh)"
+      echo "------" >> $MAILFILE
+      echo "$NEWDISTTAG" >> $MAILFILE
+      echo "------" >> $MAILFILE
+      echo "$NEWOUTPUT" >> $MAILFILE
+      echo "------" >> $MAILFILE
+      NEWSRPM=$(echo "$NEWOUTPUT" | grep Wrote: | awk '{print $2}')
+      if [ "$NEWSRPM" == "" ] ; then
+        echo "  ### ERROR: unable to create srpm for $package ###" >> $MAILFILE
+      else
+        case $NEWDISTTAG in
+          .el7 )
+            cp $NEWSRPM $BUILDDIR/queue.x86_64
+            echo "  ### $NEWSRPM put in queue.x86_64 ###" >> $MAILFILE
+            ;;
+          .el7_0 )
+            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_0
+            echo "  ### $NEWSRPM put in queue.x86_64.7_0 ###" >> $MAILFILE
+            ;;
+          .el7_1 )
+            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_1
+            echo "  ### $NEWSRPM put in queue.x86_64.7_1 ###" >> $MAILFILE
+            ;;
+          .el7_2 )
+            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_2
+            echo "  ### $NEWSRPM put in queue.x86_64.7_2 ###" >> $MAILFILE
+            ;;
+          * )
+            echo "  ### ERROR: dist tag $NEWDISTTAG is not in our list of tag ###" >> $MAILFILE
+            ;;
+        esac
+      fi
+      echo "##############################" >> $MAILFILE
+
+    else
     # We need to pull and get the newest stuff
     cd $CENTOSGITDIR/$package
     git checkout -q c7
-    GOUTPUT=$(git pull)
+    GOUTPUT=`git pull`
     if [ "$GOUTPUT" == "Already up-to-date." ] ; then
       echo "No Update for $package"
     else
