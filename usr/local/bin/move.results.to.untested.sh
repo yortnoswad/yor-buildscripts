@@ -1,10 +1,9 @@
 #!/bin/bash
 #
-# Check and see if there are any new repos (packages)
-#   in the list of centos rpm git repo's
+# Check and see if there are any newly built packages
 #
-# If there are, send out an email, and put the new
-#   repos in the newrepo file
+# If there are, move them to the untested section, record it,
+#   put them in the repo, send out an email
 #
 
 # Get the buildscripts global variables
@@ -61,7 +60,7 @@ if [ -s $MAILFILE ] ; then
   rsync -avH --delete -e "ssh -i $BUILDUSERPEM -l $BUILDUSER" $YORREPODIR/7untested/ $REMOTESERVER:$REMOTEREPODIR/7untested/
   # Send the mail
   mail -s "UNTESTED NEW PACKAGES - $TODAY" $EMAILLIST < $MAILFILE
-  mv $MAILFILE $LOGDIR/new.$BUILDTYPE.packages.$TODAY
+  mv $MAILFILE $LOGDIR/new.untested.rpms/new.untested.packages.$TODAY
   echo "$NOW [SUCCESS] $0 [UNTESTED NEW PACKAGES] $LOGDIR/new.$BUILDTYPE.packages.$TODAY" >> $LOGFILE
 else
   echo "$NOW [SUCCESS] $0 [UNTESTED NO NEW PACKAGES]" >> $LOGFILE
