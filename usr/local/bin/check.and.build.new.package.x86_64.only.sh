@@ -27,6 +27,8 @@ do
     # We do not have the repo yet, get it and mark that is has changed
     cd $CENTOSGITDIR
     git clone $packagegit
+    cd $package
+    git checkout c7
     echo "##############################" >> $MAILFILE
     echo "### Update found: $package  - New Repo ###" >> $MAILFILE
       NEWDISTTAG=$(return_disttag.sh)
