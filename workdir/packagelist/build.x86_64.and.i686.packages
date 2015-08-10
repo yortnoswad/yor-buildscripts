@@ -27,5 +27,3 @@ x86info,https://git.centos.org/git/rpms/x86info.git
 xorg-x11-drv-intel,https://git.centos.org/git/rpms/xorg-x11-drv-intel.git
 xorg-x11-drv-openchrome,https://git.centos.org/git/rpms/xorg-x11-drv-openchrome.git
 xorg-x11-drv-vesa,https://git.centos.org/git/rpms/xorg-x11-drv-vesa.git
-xorg-x11-drv-vmmouse,https://git.centos.org/git/rpms/xorg-x11-drv-vmmouse.git
-xorg-x11-drv-vmware,https://git.centos.org/git/rpms/xorg-x11-drv-vmware.git
