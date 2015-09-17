@@ -31,6 +31,7 @@ fi
 # Tell us where to look for where the packages go
 echo "You usually can find what you want here."
 echo "   https://rhn.redhat.com/errata/rhel-server-7-errata.html"
+echo "   https://rhn.redhat.com/errata/rhel-server-fastrack-7-errata.html"
 echo
 
 # Work through the results one directory at a time
@@ -166,7 +167,7 @@ if [ -s $MAILFILE ] ; then
     createrepo --update -d $YORREPODIR/7testing/armv7/updates/fastbugs
   fi
   # Clear out the untested files that are now in tested
-  cd $YORREPODIR
+  cd $YORREPODIRs
   ls -1 7testing/i386/updates/security/ 7testing/i386/updates/fastbugs/ 7testing/i386/os/Packages/  | while read line
     do 
       rm -f 7untested/i386/os/Packages/$line
