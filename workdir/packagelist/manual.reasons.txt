@@ -1,0 +1,4 @@
+sos Remove Centos branding - git checkout version before - no rebranding
+grub2 Remove Centos branding - git checkout version before - no rebranding
+corosync Remove ExcludsiveArch so it will build on armv7
+nss-softokn Fixed spec file so it will build on arm (#1200856)
