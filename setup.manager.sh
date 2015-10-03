@@ -2,7 +2,7 @@
 #
 # Setup the buildscripts scripts and enviroment
 #
-# Be sure to fixup usr/local/etc/buildscripts.conf
+# Be sure to fixup common/usr/local/etc/buildscripts.conf
 #   to match your enviroment because that is what we
 #   will be using to set things up
 #
@@ -14,7 +14,7 @@
 #   run in the git repo base directory
 
 # Get the buildscripts global variables
-source usr/local/etc/buildscripts.conf
+source common/usr/local/etc/buildscripts.conf
 
 HERE="$PWD"
 
@@ -43,14 +43,20 @@ cd $CENTOSGITDIR/centos-git-common
 # Copy buildscripts files over
 echo "  Copy the buildscripts files to their places ..."
 cd $HERE
-# Sorry, but we've got to know where the buildscripts.conf is
-#  so at this time this can't be configurable.
+
+# Scripts
+/bin/cp -f -p manager/usr/local/bin/* $BINDIR
+
+# Configuration file - only if there isn't one, otherwise put it in as .new
 if [ -f /usr/local/etc/buildscripts.conf ] ; then
-  /bin/cp -f -p usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
+  /bin/cp -f -p common/usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
 else
-  /bin/cp -f -p usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
+  /bin/cp -f -p common/usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
+
+# Packagelists - only if they aren't already there
+if ! [ -d $WORKDIR/packagelist ] ; then
+  /bin/cp -r -p manager/workdir/packagelist $WORKDIR
 fi
-/bin/cp -f -p usr/local/bin/* $BINDIR
 
 # And ... now we're done
 echo "buildscripts is now setup."
