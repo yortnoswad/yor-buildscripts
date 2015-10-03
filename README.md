@@ -1,11 +1,18 @@
-# yorlinux-buildscripts
+# yor-buildscripts
 Scripts, libraries, and configuration files used to build Yor Linux
 
-To setup buildscripts on your machine
+Yor Buildscripts is setup as a manager/worker system.
+
+A manager can also be a worker.
+
+To setup buildscripts on the machine you are setting up
  * Download this git repo
  * Change to this directory
- * Edit usr/local/etc/buildscripts.conf to match your enviroment
- * Run setup.sh
+ * Edit common/usr/local/etc/buildscripts.conf to match your enviroment
+ * If you wish to setup a manager
+  ** setup.manager.sh
+ * If you wish to setup a worker
+  ** setup.worker.sh
 
 
 Unless otherwise noted inside the code of an individual script, 

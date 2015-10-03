@@ -2,7 +2,7 @@
 #
 # Setup the buildscripts scripts and enviroment
 #
-# Be sure to fixup usr/local/etc/buildscripts.conf
+# Be sure to fixup common/usr/local/etc/buildscripts.conf
 #   to match your enviroment because that is what we
 #   will be using to set things up
 #
@@ -14,7 +14,7 @@
 #   run in the git repo base directory
 
 # Get the buildscripts global variables
-source usr/local/etc/buildscripts.conf
+source common/usr/local/etc/buildscripts.conf
 
 HERE="$PWD"
 
@@ -31,13 +31,11 @@ cd $HERE
 # Copy scripts over 
 /bin/cp -f -p worker/usr/local/bin/* $BINDIR
 
-# Do not overright builcscripts.conf if it is already there
-# Sorry, but we've got to know where the buildscripts.conf is
-#  so at this time this can't be configurable.
+# Configuration file - only if there isn't one, otherwise put it in as .new
 if [ -f /usr/local/etc/buildscripts.conf ] ; then
-  /bin/cp -f -p usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
+  /bin/cp -f -p common/usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf.new
 else
-  /bin/cp -f -p usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
+  /bin/cp -f -p common/usr/local/etc/buildscripts.conf /usr/local/etc/buildscripts.conf
 fi
 
 # Copy the mock config files over, do not overright if they are already there.
