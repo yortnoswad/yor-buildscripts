@@ -32,3 +32,4 @@ sos,https://git.centos.org/git/rpms/sos.git
 subscription-manager,https://git.centos.org/git/rpms/subscription-manager.git
 syslinux,https://git.centos.org/git/rpms/syslinux.git
 uuid,https://git.centos.org/git/rpms/uuid.git
+firefox,https://git.centos.org/git/rpms/firefox.git

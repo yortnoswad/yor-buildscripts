@@ -202,7 +202,6 @@ filesystem,https://git.centos.org/git/rpms/filesystem.git
 findutils,https://git.centos.org/git/rpms/findutils.git
 finger,https://git.centos.org/git/rpms/finger.git
 fipscheck,https://git.centos.org/git/rpms/fipscheck.git
-firefox,https://git.centos.org/git/rpms/firefox.git
 flac,https://git.centos.org/git/rpms/flac.git
 flex,https://git.centos.org/git/rpms/flex.git
 flite,https://git.centos.org/git/rpms/flite.git
