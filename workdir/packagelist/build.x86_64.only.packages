@@ -15,4 +15,3 @@ supermin,https://git.centos.org/git/rpms/supermin.git
 tboot,https://git.centos.org/git/rpms/tboot.git
 xorg-x11-drv-vmmouse,https://git.centos.org/git/rpms/xorg-x11-drv-vmmouse.git
 xorg-x11-drv-vmware,https://git.centos.org/git/rpms/xorg-x11-drv-vmware.git
-
