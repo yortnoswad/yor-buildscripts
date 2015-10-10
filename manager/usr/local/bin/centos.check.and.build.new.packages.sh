@@ -107,8 +107,8 @@ done
 
 if [ -s $MAILFILE ] ; then
   mail -s "NEW RHEL PACKAGES - $TODAY" $EMAILLIST < $MAILFILE
-  mv $MAILFILE $LOGDIR/centos.check.and.build.new.packages.$TODAY
-  echo "$NOW [SUCCESS] $0 [NEW PACKAGES] $LOGDIR/centos.check.and.build.new.packages.$TODAY" >> $LOGFILE
+  mv $MAILFILE $LOGDIR/new.packages/centos.check.and.build.new.packages.$TODAY
+  echo "$NOW [SUCCESS] $0 [NEW PACKAGES] $LOGDIR/new.packages/centos.check.and.build.new.packages.$TODAY" >> $LOGFILE
 else
   echo "$NOW [SUCCESS] $0 [NO NEW PACKAGES]" >> $LOGFILE
 fi

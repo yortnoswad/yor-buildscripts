@@ -46,8 +46,8 @@ done
 # 
 if [ -s $MAILFILE ] ; then
   mail -s "NEW PACKAGES - MANUAL - $TODAY" $EMAILLIST < $MAILFILE
-  mv $MAILFILE $LOGDIR/new.$BUILDTYPE.packages.$TODAY
-  echo "$NOW [SUCCESS] $0 [NEW PACKAGES] $LOGDIR/new.$BUILDTYPE.packages.$TODAY" >> $LOGFILE
+  mv $MAILFILE $LOGDIR/new.packages/new.$BUILDTYPE.packages.$TODAY
+  echo "$NOW [SUCCESS] $0 [NEW PACKAGES] $LOGDIR/new.packages/new.$BUILDTYPE.packages.$TODAY" >> $LOGFILE
 else
   echo "$NOW [SUCCESS] $0 [NO NEW PACKAGES]" >> $LOGFILE
 fi
