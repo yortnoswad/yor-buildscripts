@@ -56,10 +56,13 @@ else
       ;;
   esac
   if [ "$2" == "" ] ; then
-    VERSION=""
+    VERSION=".el7"
   else
     case  $2 in
-      7_0 | 7_1 | yor7 )
+      7_0 | 7_1 | 7_2 )
+	VERSION=".el7$2"
+	;;
+      yor7 )
 	VERSION=".$2"
 	;;
       * )
@@ -74,13 +77,13 @@ fi
 # VARIABLES
 #############
 BUILDHOST=`hostname`
-QUEUEDIR="$BUILDDIR/queue.$QUEUE${VERSION}"
-DONEDIR="$BUILDDIR/done.$QUEUE${VERSION}"
-FAILDIR="$BUILDDIR/fail.$QUEUE${VERSION}"
-BUILDWORKDIR="$BUILDDIR/work.$QUEUE${VERSION}.$BUILDHOST"
+QUEUEDIR="$BUILDDIR/queue/queue.$QUEUE${VERSION}"
+DONEDIR="$BUILDDIR/done/done.$QUEUE${VERSION}"
+FAILDIR="$BUILDDIR/fail/fail.$QUEUE${VERSION}"
+BUILDWORKDIR="$BUILDDIR/working/$BUILDHOST/work.$QUEUE${VERSION}"
 MOCKSTYLE="yor-7-$ARCH${VERSION}"
 MOCKRESULT="/var/lib/mock/$MOCKSTYLE/result/"
-FINALRESULT="$BUILDDIR/result.$QUEUE"
+FINALRESULT="$BUILDDIR/results/result.$QUEUE"
 RUNQUEUE="True"
 
 #Setup
