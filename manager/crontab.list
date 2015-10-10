@@ -1,2 +1,4 @@
 # Update complete repolist from git.centos once a day
 15 1 * * * /usr/local/bin/update.repolist.sh
+45 1 * * * /usr/local/bin/check.for.new.package.manual.sh >> /srv/buildscripts/logs/cronjob/check.for.new.package.manual.logs 2>&1
+54 1 * * * /usr/local/bin/centos.check.and.build.new.packages.sh >> /srv/buildscripts/logs/cronjob/check.for.new.package.allarches.logs 2>&1
