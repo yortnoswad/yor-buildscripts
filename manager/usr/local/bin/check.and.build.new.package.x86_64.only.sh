@@ -44,19 +44,19 @@ do
       else
         case $NEWDISTTAG in
           .el7 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64
             echo "  ### $NEWSRPM put in queue.x86_64 ###" >> $MAILFILE
             ;;
           .el7_0 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_0
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64.7_0
             echo "  ### $NEWSRPM put in queue.x86_64.7_0 ###" >> $MAILFILE
             ;;
           .el7_1 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_1
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64.7_1
             echo "  ### $NEWSRPM put in queue.x86_64.7_1 ###" >> $MAILFILE
             ;;
           .el7_2 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_2
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64.7_2
             echo "  ### $NEWSRPM put in queue.x86_64.7_2 ###" >> $MAILFILE
             ;;
           * )
@@ -90,19 +90,19 @@ do
       else
         case $NEWDISTTAG in
           .el7 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64
             echo "  ### $NEWSRPM put in queue.x86_64 ###" >> $MAILFILE
             ;;
           .el7_0 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_0
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64.7_0
             echo "  ### $NEWSRPM put in queue.x86_64.7_0 ###" >> $MAILFILE
             ;;
           .el7_1 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_1
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64.7_1
             echo "  ### $NEWSRPM put in queue.x86_64.7_1 ###" >> $MAILFILE
             ;;
           .el7_2 )
-            cp $NEWSRPM $BUILDDIR/queue.x86_64.7_2
+            cp $NEWSRPM $BUILDDIR/queue/queue.x86_64.7_2
             echo "  ### $NEWSRPM put in queue.x86_64.7_2 ###" >> $MAILFILE
             ;;
           * )

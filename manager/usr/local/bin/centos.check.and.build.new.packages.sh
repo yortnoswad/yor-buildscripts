@@ -79,25 +79,25 @@ do
     if ! [ "$NEWSRPM" == "" ] ; then
       case $PFILE in
         build.noarch.packages )
-          cp $NEWSRPM $BUILDDIR/queue.$NOARCHBUILDARCH$NEWDISTTAG
+          cp $NEWSRPM $BUILDDIR/queue/queue.$NOARCHBUILDARCH$NEWDISTTAG
           echo "  Put in queue.$NOARCHBUILDARCH$NEWDISTTAG" >> $MAILFILE
           ;;
         build.x86_64.only.packages )
-          cp $NEWSRPM $BUILDDIR/queue.x86_64$NEWDISTTAG
+          cp $NEWSRPM $BUILDDIR/queue/queue.x86_64$NEWDISTTAG
           echo "  Put in queue.x86_64$NEWDISTTAG" >> $MAILFILE
           ;;
         build.x86_64.and.i686.packages )
-          cp $NEWSRPM $BUILDDIR/queue.x86_64$NEWDISTTAG
+          cp $NEWSRPM $BUILDDIR/queue/queue.x86_64$NEWDISTTAG
           echo "  Put in queue.x86_64$NEWDISTTAG" >> $MAILFILE
-          cp $NEWSRPM $BUILDDIR/queue.i386$NEWDISTTAG
+          cp $NEWSRPM $BUILDDIR/queue/queue.i386$NEWDISTTAG
           echo "  Put in queue.i386$NEWDISTTAG" >> $MAILFILE
           ;;
         build.allarches.packages )
-          cp $NEWSRPM $BUILDDIR/queue.armv7$NEWDISTTAG
+          cp $NEWSRPM $BUILDDIR/queue/queue.armv7$NEWDISTTAG
           echo "  Put in queue.armv7$NEWDISTTAG" >> $MAILFILE
-          cp $NEWSRPM $BUILDDIR/queue.i386$NEWDISTTAG
+          cp $NEWSRPM $BUILDDIR/queue/queue.i386$NEWDISTTAG
           echo "  Put in queue.i386$NEWDISTTAG" >> $MAILFILE
-          cp $NEWSRPM $BUILDDIR/queue.x86_64$NEWDISTTAG
+          cp $NEWSRPM $BUILDDIR/queue/queue.x86_64$NEWDISTTAG
           echo "  Put in queue.x86_64$NEWDISTTAG" >> $MAILFILE
           ;;
       esac
