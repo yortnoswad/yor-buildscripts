@@ -27,6 +27,7 @@ do
   # Work through the packages one at a time
   for packageline in `cat $PACKAGEDIR/$PFILE`
   do
+    NEWSRPM=""
     package=`echo $packageline | cut -d',' -f1`
     packagegit=`echo $packageline | cut -d',' -f2`
     if ! [ -d $CENTOSGITDIR/$package ] ; then
