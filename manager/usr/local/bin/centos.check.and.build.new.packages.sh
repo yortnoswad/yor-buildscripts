@@ -27,6 +27,7 @@ do
   # Work through the packages one at a time
   for packageline in `cat $PACKAGEDIR/$PFILE`
   do
+    NEWSRPM=""
     package=`echo $packageline | cut -d',' -f1`
     packagegit=`echo $packageline | cut -d',' -f2`
     if ! [ -d $CENTOSGITDIR/$package ] ; then
@@ -79,8 +80,8 @@ do
     if ! [ "$NEWSRPM" == "" ] ; then
       case $PFILE in
         build.noarch.packages )
-          cp $NEWSRPM $BUILDDIR/queue/queue.$NOARCHBUILDARCH$NEWDISTTAG
-          echo "  Put in queue.$NOARCHBUILDARCH$NEWDISTTAG" >> $MAILFILE
+          cp $NEWSRPM $BUILDDIR/queue/queue.noarch$NEWDISTTAG
+          echo "  Put in queue.noarch$NEWDISTTAG" >> $MAILFILE
           ;;
         build.x86_64.only.packages )
           cp $NEWSRPM $BUILDDIR/queue/queue.x86_64$NEWDISTTAG
