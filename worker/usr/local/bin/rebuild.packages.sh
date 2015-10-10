@@ -60,7 +60,7 @@ else
   else
     case  $2 in
       7_0 | 7_1 | 7_2 )
-	VERSION=".el7$2"
+	VERSION=".el$2"
 	;;
       yor7 )
 	VERSION=".$2"
