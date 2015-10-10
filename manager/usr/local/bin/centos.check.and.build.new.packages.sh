@@ -80,8 +80,8 @@ do
     if ! [ "$NEWSRPM" == "" ] ; then
       case $PFILE in
         build.noarch.packages )
-          cp $NEWSRPM $BUILDDIR/queue.$NOARCHBUILDARCH$NEWDISTTAG
-          echo "  Put in queue.$NOARCHBUILDARCH$NEWDISTTAG" >> $MAILFILE
+          cp $NEWSRPM $BUILDDIR/queue.noarch$NEWDISTTAG
+          echo "  Put in queue.noarch$NEWDISTTAG" >> $MAILFILE
           ;;
         build.x86_64.only.packages )
           cp $NEWSRPM $BUILDDIR/queue.x86_64$NEWDISTTAG
