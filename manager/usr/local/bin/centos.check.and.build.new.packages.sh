@@ -41,13 +41,9 @@ do
       git checkout c7
       echo "========================" >> $MAILFILE
       echo "New Repo: $package" >> $MAILFILE
+      echo "------" >> $MAILFILE
       NEWDISTTAG=`return_disttag.sh 2>/dev/null </dev/null`
       NEWOUTPUT=`into_srpm.sh 2>/dev/null </dev/null`
-      echo "------" >> $MAILFILE
-      echo "$NEWDISTTAG" >> $MAILFILE
-      echo "------" >> $MAILFILE
-      echo "$NEWOUTPUT" >> $MAILFILE
-      echo "------" >> $MAILFILE
       NEWSRPM=`echo "$NEWOUTPUT" | grep Wrote: | awk '{print $2}'`
     else
       # We need to pull and get the newest stuff
@@ -65,14 +61,8 @@ do
         echo "========================" >> $MAILFILE
         echo "NEW: $package" >> $MAILFILE
         echo "------" >> $MAILFILE
-        echo "$GOUTPUT" >> $MAILFILE
         NEWDISTTAG=`return_disttag.sh 2>/dev/null </dev/null`
         NEWOUTPUT=`into_srpm.sh 2>/dev/null </dev/null`
-        echo "------" >> $MAILFILE
-        echo "$NEWDISTTAG" >> $MAILFILE
-        echo "------" >> $MAILFILE
-        echo "$NEWOUTPUT" >> $MAILFILE
-        echo "------" >> $MAILFILE
         NEWSRPM=`echo "$NEWOUTPUT" | grep Wrote: | awk '{print $2}'`
       fi
     fi

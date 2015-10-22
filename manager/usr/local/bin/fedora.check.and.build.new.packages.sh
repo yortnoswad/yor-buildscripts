@@ -28,6 +28,7 @@ do
     if ! [ -f $FEDORAGITDIR/SRPMS/$latestpackage.src.rpm ] && ! [ "$latestpackage" == "" ] ; then
       echo "========================" >> $MAILFILE
       echo "NEW: $latestpackage" >> $MAILFILE
+      echo "------" >> $MAILFILE
       cd $FEDORAGITDIR/SRPMS
       koji download-build --arch=src --latestfrom=$FEDORATAG $package > /dev/null 2>&1
       case $PFILE in
