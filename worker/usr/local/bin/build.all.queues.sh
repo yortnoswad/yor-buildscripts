@@ -13,6 +13,7 @@ source /usr/local/etc/buildscripts.conf
 # Setup Variables
 DEBUG="true"
 MONTH="$(date +%Y-%m)"
+BUILDHOST=`hostname`
 WORKDIR="$BUILDDIR/working/$BUILDHOST"
 LOCKFILE="$WORKDIR/lockfile"
 LOGFILE="$WORKDIR/logs/$MONTH.log"
@@ -58,9 +59,10 @@ else
     for THISVERSION in $VERSIONLIST
     do
       if [ "$DEBUG" == "true" ] ; then
-        echo "  Running: $THISARCH $THISVERSION" >> $LOGFILE
+        echo "  Running: $THISARCH $THISVERSION"
       fi
-      rebuild.packages.sh $THISARCH $THISVERSION
+      echo "  Running: $THISARCH $THISVERSION" >> $LOGFILE
+      rebuild.packages.sh $THISARCH $THISVERSION >> $LOGFILE 2>&1
     done
   done
   # Remove lockfile
