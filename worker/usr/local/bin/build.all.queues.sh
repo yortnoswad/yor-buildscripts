@@ -11,7 +11,7 @@
 source /usr/local/etc/buildscripts.conf
 
 # Setup Variables
-DEBUG="true"
+DEBUG="false"
 MONTH="$(date +%Y-%m)"
 BUILDHOST=`hostname`
 WORKDIR="$BUILDDIR/working/$BUILDHOST"
