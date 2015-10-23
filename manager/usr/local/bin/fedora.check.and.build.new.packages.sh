@@ -33,21 +33,21 @@ do
       koji download-build --arch=src --latestfrom=$FEDORATAG $package > /dev/null 2>&1
       case $PFILE in
         fedora.i686.packages )
-          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.queue.i386.yor7
+          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.i386.yor7
           echo "  Put in queue.i386.yor7" >> $MAILFILE
           ;;
         fedora.armv7.and.i686.packages )
-          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.queue.armv7.yor7
+          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.armv7.yor7
           echo "  Put in queue.armv7.yor7" >> $MAILFILE
-          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.queue.i386.yor7
+          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.i386.yor7
           echo "  Put in queue.i386.yor7" >> $MAILFILE
           ;;
         fedora.allarches.packages )
-          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.queue.armv7.yor7
+          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.armv7.yor7
           echo "  Put in queue.armv7.yor7" >> $MAILFILE
-          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.queue.i386.yor7
+          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.i386.yor7
           echo "  Put in queue.i386.yor7" >> $MAILFILE
-          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.queue.x86_64.yor7
+          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.x86_64.yor7
           echo "  Put in queue.x86_64.yor7" >> $MAILFILE
           ;;
       esac
