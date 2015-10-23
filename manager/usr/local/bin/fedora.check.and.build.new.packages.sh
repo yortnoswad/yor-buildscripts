@@ -36,6 +36,10 @@ do
           cp $latestpackage.src.rpm $BUILDDIR/queue/queue.i386.yor7
           echo "  Put in queue.i386.yor7" >> $MAILFILE
           ;;
+        fedora.armv7.packages )
+          cp $latestpackage.src.rpm $BUILDDIR/queue/queue.armv7.yor7
+          echo "  Put in queue.armv7.yor7" >> $MAILFILE
+          ;;
         fedora.armv7.and.i686.packages )
           cp $latestpackage.src.rpm $BUILDDIR/queue/queue.armv7.yor7
           echo "  Put in queue.armv7.yor7" >> $MAILFILE
