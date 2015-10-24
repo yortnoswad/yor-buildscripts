@@ -1,7 +1,12 @@
+exo
+garcon
 gtk-xfce-engine
+hddtemp
+libwnck
 libxfce4ui
 libxfce4util
 libxfcegui4
+vte
 xfce4-appfinder
 xfce4-battery-plugin
 xfce4-cellmodem-plugin
@@ -50,3 +55,4 @@ xfce4-xfswitch-plugin
 xfce4-xkb-plugin
 xfce-bluetooth
 xfce-polkit
+xfconf
