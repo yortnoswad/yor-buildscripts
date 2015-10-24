@@ -18,6 +18,7 @@ MAILFILE="$PACKAGEDIR/mailfile.epel7.check.and.build.new.packages.$TODAY"
 BUILDTYPE=""
 PACKAGESFILES="epel7.allarches.packages"
 
+cd $CENTOSGITDIR/..
 for PFILE in $PACKAGESFILES
 do
   # Work through the packages one at a time
@@ -25,11 +26,11 @@ do
   do
     # Find the latest version of the package
     latestpackage=`koji latest-build epel7 $package | grep epel7 | cut -d' ' -f1`
-    if ! [ -f epel7/SRPMS/$latestpackage.src.rpm ] && ! [ "$latestpackage" == "" ] ; then
+    if ! [ -f $CENTOSGITDIR/../epel7/SRPMS/$latestpackage.src.rpm ] && ! [ "$latestpackage" == "" ] ; then
       echo "========================" >> $MAILFILE
       echo "NEW: $latestpackage" >> $MAILFILE
       echo "------" >> $MAILFILE
-      cd epel7/SRPMS
+      cd $CENTOSGITDIR/../epel7/SRPMS
       koji download-build --arch=src --latestfrom=epel7 $package > /dev/null 2>&1
       case $PFILE in
         epel7.i686.packages )
