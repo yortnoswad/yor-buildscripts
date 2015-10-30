@@ -21,7 +21,7 @@ RESULTSLIST="result.noarch result.armv7 result.i386 result.x86_64"
 for resultdir in $RESULTSLIST
 do
   cd $BUILDDIR/results/$resultdir
-  ls -d1 */*/* | while read packdir
+  ls -d1 */*/* 2>/dev/null | while read packdir
   do
     # Check to make sure we are not catching something
     #   in mid transfer
@@ -44,7 +44,8 @@ do
             ;;
       esac
       packge="$(echo $packdir | cut -d'/' -f1)"
-      mv $packge $UNTESTEDDIR/$resultdir/
+      cp -frp $packge $UNTESTEDDIR/$resultdir/
+      rm -rf $packge
       echo $resultdir $packdir >> $MAILFILE
     fi
   done
