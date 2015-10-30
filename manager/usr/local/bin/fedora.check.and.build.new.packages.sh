@@ -16,7 +16,7 @@ TODAY=$(date +%Y-%m-%d)
 PACKAGEDIR="$WORKDIR/packagelist"
 MAILFILE="$PACKAGEDIR/mailfile.fedora.check.and.build.new.packages.$TODAY"
 BUILDTYPE=""
-PACKAGESFILES="fedora.armv7.and.i686.packages fedora.i686.packages fedora.allarches.packages"
+PACKAGESFILES="fedora.armv7.and.i686.packages fedora.i686.packages fedora.armv7.packages fedora.allarches.packages"
 
 for PFILE in $PACKAGESFILES
 do
