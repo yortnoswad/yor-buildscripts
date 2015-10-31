@@ -97,7 +97,8 @@ do
             mkdir -p  $TESTINGDIR/{armv7,i386,x86_64}/$finaldir/$rpmname/$rpmversion
             cp -rp $packdir $TESTINGDIR/armv7/$finaldir/$rpmname/$rpmversion/
             cp -rp $packdir $TESTINGDIR/i386/$finaldir/$rpmname/$rpmversion/
-            mv $packdir $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion/
+            cp -frp $packdir $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion/
+            rm -rf $packdir
             rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
         result.armv7 )
@@ -107,7 +108,8 @@ do
               rm -f $YORREPODIR/7untested/armv7/os/Packages/$thisrpm
             done
             mkdir -p  $TESTINGDIR/armv7/$finaldir/$rpmname/$rpmversion
-            mv $packdir $TESTINGDIR/armv7/$finaldir/$rpmname/$rpmversion/
+            cp -frp $packdir $TESTINGDIR/armv7/$finaldir/$rpmname/$rpmversion/
+            rm -rf $packdir
             rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
         result.i386 )
@@ -117,7 +119,8 @@ do
               rm -f $YORREPODIR/7untested/i386/os/Packages/$thisrpm
             done
             mkdir -p  $TESTINGDIR/i386/$finaldir/$rpmname/$rpmversion
-            mv $packdir $TESTINGDIR/i386/$finaldir/$rpmname/$rpmversion/
+            cp -frp $packdir $TESTINGDIR/i386/$finaldir/$rpmname/$rpmversion/
+            rm -rf $packdir
             rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
         result.x86_64 )
@@ -127,7 +130,8 @@ do
               rm -f $YORREPODIR/7untested/x86_64/os/Packages/$thisrpm
             done
             mkdir -p $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion
-            mv $packdir $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion/
+            cp -frp $packdir $TESTINGDIR/x86_64/$finaldir/$rpmname/$rpmversion/
+            rm -rf $packdir
             rmdir --ignore-fail-on-non-empty $namedir/$rpmversion $namedir
             ;;
       esac
