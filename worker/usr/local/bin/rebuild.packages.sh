@@ -1,10 +1,6 @@
 #!/bin/bash
 #
-# Check and see if there are any new repos (packages)
-#   in the list of centos rpm git repo's
-#
-# If there are, send out an email, and put the new
-#   repos in the newrepo file
+# Build packages in requested queue
 #
 
 # Get the buildscripts global variables
@@ -56,10 +52,13 @@ else
       ;;
   esac
   if [ "$2" == "" ] ; then
-    VERSION=""
+    VERSION=".el7"
   else
     case  $2 in
-      7_0 | 7_1 | yor7 )
+      7_0 | 7_1 | 7_2 )
+	VERSION=".el$2"
+	;;
+      yor7 | el7 )
 	VERSION=".$2"
 	;;
       * )
@@ -74,13 +73,13 @@ fi
 # VARIABLES
 #############
 BUILDHOST=`hostname`
-QUEUEDIR="$BUILDDIR/queue.$QUEUE${VERSION}"
-DONEDIR="$BUILDDIR/done.$QUEUE${VERSION}"
-FAILDIR="$BUILDDIR/fail.$QUEUE${VERSION}"
-BUILDWORKDIR="$BUILDDIR/work.$QUEUE${VERSION}.$BUILDHOST"
+QUEUEDIR="$BUILDDIR/queue/queue.$QUEUE${VERSION}"
+DONEDIR="$BUILDDIR/done/done.$QUEUE${VERSION}"
+FAILDIR="$BUILDDIR/fail/fail.$QUEUE${VERSION}"
+BUILDWORKDIR="$BUILDDIR/working/$BUILDHOST/work.$QUEUE${VERSION}"
 MOCKSTYLE="yor-7-$ARCH${VERSION}"
 MOCKRESULT="/var/lib/mock/$MOCKSTYLE/result/"
-FINALRESULT="$BUILDDIR/result.$QUEUE"
+FINALRESULT="$BUILDDIR/results/result.$QUEUE"
 RUNQUEUE="True"
 
 #Setup
@@ -91,8 +90,8 @@ while [ "$RUNQUEUE" = "True" ]
 do
 	cd $QUEUEDIR
 	THISSRPM=`ls -1 *.src.rpm 2>/dev/null | head -n 1`
-	echo "BUILDING: $THISSRPM"
 	if ! [ "$THISSRPM" = "" ] ; then
+		echo "BUILDING: $THISSRPM"
 		mv $QUEUEDIR/$THISSRPM $BUILDWORKDIR 
 		cd $BUILDWORKDIR
 		if [ -f $THISSRPM ] ; then
@@ -124,10 +123,10 @@ do
 		else
 			echo " Looks like we hit a race condition, moving on..."
 		fi
+		echo "FINISHED WITH $THISSRPM"
 	else
 		RUNQUEUE="False"
 	fi
-	echo "FINISHED WITH $THISSRPM"
 done
 
 # Send off email

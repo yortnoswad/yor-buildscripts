@@ -20,8 +20,8 @@ RESULTSLIST="result.noarch result.armv7 result.i386 result.x86_64"
 # Work through the results one directory at a time
 for resultdir in $RESULTSLIST
 do
-  cd $BUILDDIR/$resultdir
-  ls -d1 */*/* | while read packdir
+  cd $BUILDDIR/results/$resultdir
+  ls -d1 */*/* 2>/dev/null | while read packdir
   do
     # Check to make sure we are not catching something
     #   in mid transfer
@@ -29,22 +29,23 @@ do
       echo $resultdir $(rpm -qp --qf "%{name} %{version} %{release}" $packdir/SRPM/*.src.rpm ) >> $UNTESTEDRESULTS
       case $resultdir in
         result.noarch )
-            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/i386/os/Packages/
-            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/x86_64/os/Packages/
-            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/armv7/os/Packages/
+            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/i386/os/Packages/ 2>/dev/null
+            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/x86_64/os/Packages/ 2>/dev/null
+            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/armv7/os/Packages/ 2>/dev/null
             ;;
         result.armv7 )
-            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/armv7/os/Packages/
+            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/armv7/os/Packages/ 2>/dev/null
             ;;
         result.i386 )
-            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/i386/os/Packages/
+            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/i386/os/Packages/ 2>/dev/null
             ;;
         result.x86_64 )
-            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/x86_64/os/Packages/
+            cp -f $packdir/RPM/*.rpm $YORREPODIR/7untested/x86_64/os/Packages/ 2>/dev/null
             ;;
       esac
       packge="$(echo $packdir | cut -d'/' -f1)"
-      mv $packge $UNTESTEDDIR/$resultdir/
+      cp -frp $packge $UNTESTEDDIR/$resultdir/
+      rm -rf $packge
       echo $resultdir $packdir >> $MAILFILE
     fi
   done
