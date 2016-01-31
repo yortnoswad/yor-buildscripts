@@ -1072,3 +1072,14 @@ yum,https://git.centos.org/git/rpms/yum.git
 yum-langpacks,https://git.centos.org/git/rpms/yum-langpacks.git
 yum-utils,https://git.centos.org/git/rpms/yum-utils.git
 zaf,https://git.centos.org/git/rpms/zaf.git
+adwaita-icon-theme,https://git.centos.org/git/rpms/adwaita-icon-theme.git
+ipsilon,https://git.centos.org/git/rpms/ipsilon.git
+python-cherrypy,https://git.centos.org/git/rpms/python-cherrypy.git
+python-pycparser,https://git.centos.org/git/rpms/python-pycparser.git
+python-ply,https://git.centos.org/git/rpms/python-ply.git
+python-ntplib,https://git.centos.org/git/rpms/python-ntplib.git
+python-kdcproxy,https://git.centos.org/git/rpms/python-kdcproxy.git
+python-enum34,https://git.centos.org/git/rpms/python-enum34.git
+rear,https://git.centos.org/git/rpms/rear.git
+virt-p2v,https://git.centos.org/git/rpms/virt-p2v.git
+python-jsonpointer,https://git.centos.org/git/rpms/python-jsonpointer.git

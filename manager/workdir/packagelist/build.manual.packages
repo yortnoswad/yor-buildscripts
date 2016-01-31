@@ -14,7 +14,6 @@ grub2,https://git.centos.org/git/rpms/grub2.git
 httpd,https://git.centos.org/git/rpms/httpd.git
 ipa,https://git.centos.org/git/rpms/ipa.git
 irqbalance,https://git.centos.org/git/rpms/irqbalance.git
-libreoffice,https://git.centos.org/git/rpms/libreoffice.git
 libreport,https://git.centos.org/git/rpms/libreport.git
 mesa,https://git.centos.org/git/rpms/mesa.git
 nss,https://git.centos.org/git/rpms/nss.git
@@ -26,10 +25,9 @@ plymouth,https://git.centos.org/git/rpms/plymouth.git
 pyparted,https://git.centos.org/git/rpms/pyparted.git
 redhat-bookmarks,https://git.centos.org/git/rpms/redhat-bookmarks.git
 redhat-rpm-config,https://git.centos.org/git/rpms/redhat-rpm-config.git
-shim,https://git.centos.org/git/rpms/shim.git
-shim-signed,https://git.centos.org/git/rpms/shim-signed.git
 sos,https://git.centos.org/git/rpms/sos.git
 subscription-manager,https://git.centos.org/git/rpms/subscription-manager.git
 syslinux,https://git.centos.org/git/rpms/syslinux.git
 uuid,https://git.centos.org/git/rpms/uuid.git
 firefox,https://git.centos.org/git/rpms/firefox.git
+shim-signed,https://git.centos.org/git/rpms/shim-signed.git

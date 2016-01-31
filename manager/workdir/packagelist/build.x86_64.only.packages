@@ -15,3 +15,8 @@ supermin,https://git.centos.org/git/rpms/supermin.git
 tboot,https://git.centos.org/git/rpms/tboot.git
 xorg-x11-drv-vmmouse,https://git.centos.org/git/rpms/xorg-x11-drv-vmmouse.git
 xorg-x11-drv-vmware,https://git.centos.org/git/rpms/xorg-x11-drv-vmware.git
+hyperv-daemons,https://git.centos.org/git/rpms/hyperv-daemons.git
+opendnssec,https://git.centos.org/git/rpms/opendnssec.git
+libhfi1,https://git.centos.org/git/rpms/libhfi1.git
+libpsm2,https://git.centos.org/git/rpms/libpsm2.git
+shim,https://git.centos.org/git/rpms/shim.git

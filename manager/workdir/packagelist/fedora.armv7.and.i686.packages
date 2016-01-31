@@ -2,6 +2,7 @@ atmel-firmware
 bcm283x-firmware
 bfa-firmware
 firmware-tools
+grubby
 hwdata
 iscan-firmware
 isight-firmware-tools

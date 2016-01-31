@@ -27,3 +27,6 @@ x86info,https://git.centos.org/git/rpms/x86info.git
 xorg-x11-drv-intel,https://git.centos.org/git/rpms/xorg-x11-drv-intel.git
 xorg-x11-drv-openchrome,https://git.centos.org/git/rpms/xorg-x11-drv-openchrome.git
 xorg-x11-drv-vesa,https://git.centos.org/git/rpms/xorg-x11-drv-vesa.git
+qemu-kvm,https://git.centos.org/git/rpms/qemu-kvm.git
+libreoffice,https://git.centos.org/git/rpms/libreoffice.git
+libreoffice-voikko,https://git.centos.org/git/rpms/libreoffice-voikko.git

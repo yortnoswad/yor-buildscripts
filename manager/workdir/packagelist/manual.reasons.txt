@@ -1,5 +1,21 @@
 sos Remove Centos branding - git checkout version before - no rebranding
-grub2 Remove Centos branding - git checkout version before - no rebranding
+grub2 - x86_64 and I386 only - Remove Centos branding - git checkout version before - no rebranding
 corosync Remove ExcludsiveArch so it will build on armv7
+nss Fixed spec file so it will build on arm (#1200856)
 nss-softokn Fixed spec file so it will build on arm (#1200856)
 firefox Remove Centos branding - git checkout version before - no rebranding
+centos-release Do Not Build - Just check what changed incase we care about it
+libreport remove dependency on redhat-access-insights, no use upstream bugzilla, no support cases
+PackageKit Fix not-rhel.patch for Yor Linux
+mesa add /usr/lib/dri/msm_dri.so to arm files
+irqbalance Add global _unitdir to fix file sectoin for arm
+gfs2-utils Remove ExclusiveArch
+ipa sed -i "s/Requires: redhat-access-plugin-ipa/#Requires: redhat-access-plugin-ipa/" ipa.spec
+golang sed -i "s/%{?dist}/.yor7/g;s/#%global go_arches       %{ix86} x86_64 %{arm}/%global go_arches       %{ix86} x86_64 %{arm}/g;s/%global go_arches       x86_64/#%global go_arches       x86_64/g" golang.spec
+shim-signed - x86_64 only - Do not compare shim.hash, pesign without the -a -c or -n
+efibootmgr - x86_64 and i386 only - sed -i "s/ExclusiveArch: x86_64 aarch64/ExclusiveArch: %{ix86} x86_64 aarch64/g" efibootmgr.spec
+gnu-efi - x86_64 and i386 only - sed -i "s/ExclusiveArch: x86_64 aarch64/ExclusiveArch: %{ix86} x86_64 aarch64/g" efibootmgr.spec
+plymouth Remove Centos branding - git checkout version before rebranding
+subscription-manager Add debrand-warnings.patch to make warning generic, Add remove-redhat.repo.patch to not build redhat.repo, Do not add RHEL certs, Remove rhsm gui autostart
+seabios - x86_64 and i386 only - Add %{ix86} to exclusivearch
+libmspack - Add %{ix86} to exclusivearch

@@ -1,0 +1,3 @@
+haproxy,https://git.centos.org/git/rpms/haproxy.git
+radvd,https://git.centos.org/git/rpms/radvd.git
+subversion,https://git.centos.org/git/rpms/subversion.git
